@@ -41,54 +41,6 @@
                     └───────────────────┘
 ```
 
-### Mermaid Diagram (for GitHub/GitLab rendering)
-
-```mermaid
-ERD
-    users ||--o{ transactions : "has many"
-    users {
-        UUID id PK
-        VARCHAR username UK
-        VARCHAR email UK
-        VARCHAR password_hash
-        DECIMAL balance
-        VARCHAR status
-        VARCHAR role
-        TIMESTAMP created_at
-        TIMESTAMP updated_at
-        TIMESTAMP last_login
-    }
-
-    transactions {
-        UUID id PK
-        UUID user_id FK
-        VARCHAR transaction_id UK
-        ENUM type
-        DECIMAL amount
-        DECIMAL balance_before
-        DECIMAL balance_after
-        TEXT description
-        JSONB metadata
-        TIMESTAMP processed_at
-        TIMESTAMP created_at
-    }
-
-    user_summary ||--|| users : "extends"
-    user_summary {
-        UUID id PK
-        VARCHAR username
-        VARCHAR email
-        DECIMAL balance
-        VARCHAR status
-        VARCHAR role
-        TIMESTAMP created_at
-        TIMESTAMP updated_at
-        TIMESTAMP last_login
-        INTEGER transaction_count
-        TIMESTAMP last_transaction_date
-    }
-```
-
 ## Detailed Entity Descriptions
 
 ### Users Entity
